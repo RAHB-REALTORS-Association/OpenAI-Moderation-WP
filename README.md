@@ -1,5 +1,3 @@
-Sure, here's an updated README.md for your OpenAI Moderation WordPress plugin:
-
 # OpenAI Moderation WordPress Plugin
 
 This WordPress plugin filters input fields in text areas using the OpenAI Moderation API. It helps ensure that the content complies with OpenAI's usage policies and allows you to 
