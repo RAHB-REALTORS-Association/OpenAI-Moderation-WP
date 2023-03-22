@@ -3,7 +3,7 @@
 Plugin Name: OpenAI Moderation
 Plugin URI: https://github.com/RAHB-REALTORS-Association/OpenAI-Moderation-WP
 Description: A simple plugin that filters input fields in text areas using the <a href="https://platform.openai.com/docs/guides/moderation/overview" target="_blank">OpenAI Moderation API</a>.
-Version: 1.0.1
+Version: 1.0.2
 Author: RAHB
 Author URI: https://github.com/RAHB-REALTORS-Association
 License: GPLv2
