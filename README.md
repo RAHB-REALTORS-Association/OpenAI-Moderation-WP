@@ -42,4 +42,4 @@ If you would like to contribute to the development of this plugin, feel free to 
 
 ## License
 
-This plugin is licensed under the MIT license. See the LICENSE file for more information.
+This plugin is licensed under the GPLv2 license. See the LICENSE file for more information.
