@@ -1,32 +1,10 @@
 <?php
-/*
-Plugin Name: OpenAI Moderation
-Plugin URI: https://github.com/RAHB-REALTORS-Association/OpenAI-Moderation-WP
-Description: A simple plugin that filters input fields in text areas using the <a href="https://platform.openai.com/docs/guides/moderation/overview" target="_blank">OpenAI Moderation API</a>.
-Version: 1.0.2
-Author: RAHB
-Author URI: https://github.com/RAHB-REALTORS-Association
-License: GPLv2
-Text Domain: openai-moderation
-*/
-
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-class OpenAIModeration
+class OpenAIModeration_Settings
 {
     public function __construct()
     {
         add_action('admin_menu', [$this, 'register_settings_submenu']);
         add_action('admin_init', [$this, 'register_settings']);
-        add_action('plugins_loaded', [$this, 'load_text_domain']);
-        add_filter('preprocess_comment', [$this, 'moderate_comment']);
-    }
-
-    public function load_text_domain()
-    {
-        load_plugin_textdomain('openai-moderation', false, basename(dirname(__FILE__)) . '/languages');
     }
 
     public function register_settings_submenu()
@@ -50,7 +28,8 @@ class OpenAIModeration
         register_setting('openai-moderation', 'openai_plugin_enabled');
     }
 
-    public function settings_page() {
+    public function settings_page()
+    {
         $allowed_classifications_options = array(
             'hate' => __('Hate', 'openai-moderation'),
             'hate/threatening' => __('Hate/Threatening', 'openai-moderation'),
@@ -105,68 +84,6 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
         <?php
     }
 
-    public function moderate_content($content)
-    {
-        $api_key = get_option('openai_api_key');
-        if (!$api_key || !get_option('openai_plugin_enabled')) {
-            return false;
-        }
-
-        $url = 'https://api.openai.com/v1/moderations';
-        $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $api_key
-        );
-        $body = array(
-            'input' => $content
-        );
-
-        $response = wp_remote_post($url, array(
-            'headers' => $headers,
-            'body' => json_encode($body),
-            'timeout' => 30
-        ));
-
-        if (is_wp_error($response)) {
-            return false;
-        }
-
-        $response_body = json_decode(wp_remote_retrieve_body($response), true);
-        if (!$response_body || !isset($response_body['results']) || !isset($response_body['results'][0])) {
-            return false;
-        }
-
-        $moderation_result = $response_body['results'][0];
-        return $moderation_result;
-    }
-
-    public function moderate_comment($comment_data)
-    {
-        $content = $comment_data['comment_content'];
-        $moderation_result = $this->moderate_content($content);
-
-        if (!$moderation_result || !$moderation_result['flagged']) {
-            return $comment_data;
-        }
-
-        $allowed_classifications = get_option('openai_classifications');
-        $allowed_classifications = array_map('trim', $allowed_classifications);
-
-        $violates_policies = false;
-        foreach ($moderation_result['categories'] as $category => $flagged) {
-            if ($flagged && in_array($category, $allowed_classifications)) {
-                $violates_policies = true;
-                break;
-            }
-        }
-        
-        if ($violates_policies) {
-            wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
-        }        
-
-        return $comment_data;
-    }
-
     public function sanitize_classifications($classifications)
     {
         if (!is_array($classifications)) {
@@ -182,5 +99,3 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
         }));
     }
 }
-
-new OpenAIModeration();
