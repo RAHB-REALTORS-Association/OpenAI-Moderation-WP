@@ -1,7 +1,7 @@
 # OpenAI Moderation WordPress Plugin
 
-This WordPress plugin filters input fields in text areas using the OpenAI Moderation API. It helps ensure that the content complies with OpenAI's usage policies and allows you to 
-control which content categories are allowed on your website.
+This WordPress plugin filters input fields in text areas using the OpenAI Moderation API. It helps ensure that user-submitted content is respectful and allows you to 
+control which content classifications are allowed on your website.
 
 ## Features
 
