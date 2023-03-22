@@ -3,7 +3,7 @@
 Plugin Name: OpenAI Moderation
 Plugin URI: https://github.com/RAHB-REALTORS-Association/openai-moderation-wp
 Description: A simple plugin that filters input fields in text areas using the OpenAI Moderation API.
-Version: 1.0
+Version: 1.0.1
 Author: RAHB
 Author URI: https://www.rahb.ca/
 License: GPLv2
@@ -148,14 +148,20 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
             return $comment_data;
         }
 
-        $allowed_classifications = explode(',', get_option('openai_classifications'));
+        $allowed_classifications = get_option('openai_classifications');
         $allowed_classifications = array_map('trim', $allowed_classifications);
 
+        $violates_policies = false;
         foreach ($moderation_result['categories'] as $category => $flagged) {
-            if ($flagged && !in_array($category, $allowed_classifications)) {
-                wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
+            if ($flagged && in_array($category, $allowed_classifications)) {
+                $violates_policies = true;
+                break;
             }
         }
+        
+        if ($violates_policies) {
+            wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
+        }        
 
         return $comment_data;
     }
