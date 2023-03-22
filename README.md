@@ -3,6 +3,10 @@
 This WordPress plugin filters input fields in text areas using the OpenAI Moderation API. It helps ensure that user-submitted content is respectful and allows you to 
 control which content classifications are allowed on your website.
 
+### Forever Free, No Pro Version
+
+We’re proud to announce that this plugin will always be 100% free, with no plans for a “Pro” or paid version. Our goal is to provide a reliable and accessible solution for the community, and we’re committed to keeping it that way.
+
 ## Features
 
 - Configure the OpenAI API key and allowed classifications.
@@ -36,9 +40,11 @@ You can extend the plugin to moderate other types of content, such as user-submi
 
 If the plugin is not working as expected, make sure that your OpenAI API key is valid and that the 'Enable OpenAI Moderation' checkbox is checked in the plugin settings.
 
-## Contributing
+## Support and Contributions
 
-If you would like to contribute to the development of this plugin, feel free to submit a pull request or create an issue in the GitHub repository.
+While we are thrilled to receive your pull requests and issue reports, please note that we cannot guarantee support or address all feedback. Our team will prioritize security-related reports, as outlined in our security policy. We appreciate your understanding, and we encourage you to contribute to the ongoing improvement of this plugin.
+
+Thank you for using and supporting our plugin!
 
 ## License
 
