@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: OpenAI Moderation
-Plugin URI: https://github.com/RAHB-REALTORS-Association/openai-moderation-wp
-Description: A simple plugin that filters input fields in text areas using the OpenAI Moderation API.
+Plugin URI: https://github.com/RAHB-REALTORS-Association/OpenAI-Moderation-WP
+Description: A simple plugin that filters input fields in text areas using the <a href="https://platform.openai.com/docs/guides/moderation/overview" target="_blank">OpenAI Moderation API</a>.
 Version: 1.0.1
 Author: RAHB
-Author URI: https://www.rahb.ca/
+Author URI: https://github.com/RAHB-REALTORS-Association
 License: GPLv2
 Text Domain: openai-moderation
 */
@@ -75,7 +75,8 @@ class OpenAIModeration
                             <label for="openai_api_key"><?php _e('OpenAI API Key', 'openai-moderation'); ?></label>
                         </th>
                         <td>
-                            <input type="text" name="openai_api_key" id="openai_api_key" value="<?php echo esc_attr(get_option('openai_api_key')); ?>" />
+                            <input type="text" name="openai_api_key" id="openai_api_key" value="<?php echo esc_attr(get_option('openai_api_key')); ?>" /><br />
+                            <p>You can obtain an API key <a href="https://platform.openai.com/account/api-keys" target="_blank">here</a>.</p>
                         </td>
                     </tr>
                     <tr>
@@ -94,7 +95,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
                         </th>
                         <td>
                             <input type="checkbox" name="openai_plugin_enabled" id="openai_plugin_enabled" value="1" <?php checked(1, get_option('openai_plugin_enabled'), true); ?> />
-                            <label for="openai_plugin_enabled"><?php _e('Enable OpenAI Moderation', 'openai-moderation'); ?></label>
+                            <label for="openai_plugin_enabled"><?php _e('Enable Moderation', 'openai-moderation'); ?></label>
                         </td>
                     </tr>
                 </table>
