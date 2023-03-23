@@ -59,7 +59,7 @@ class OpenAIModeration_Settings
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php _e('Allowed Classifications', 'openai-moderation'); ?></th>
+                        <th scope="row"><?php _e('Disallowed Classifications', 'openai-moderation'); ?></th>
                         <td>
                             <?php foreach ($allowed_classifications_options as $classification_key => $classification_label): ?>
                                 <input type="checkbox" name="openai_classifications[]" id="openai_classifications_<?php echo $classification_key; ?>" value="<?php echo 

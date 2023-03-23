@@ -1,6 +1,14 @@
+=== OpenAI Moderation ===
+Contributors: justinhrahb
+Requires at least: 6.1
+Tested up to: 6.2
+Requires PHP: 7.4
+License: GPLv2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 # OpenAI Moderation WordPress Plugin
 
-This WordPress plugin filters input fields in text areas using the [OpenAI Moderation API](https://platform.openai.com/docs/guides/moderation/overview). It helps ensure that user-submitted content is respectful and allows you to control which content classifications are allowed on your website.
+This WordPress plugin filters input fields in text areas using the [OpenAI Moderation API](https://platform.openai.com/docs/guides/moderation/overview). It helps ensure that user-submitted content is respectful and allows you to control which content classifications are blocked on your website.
 
 ### Forever Free, No Pro Version
 
@@ -11,7 +19,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 - Configure the OpenAI API key and allowed classifications.
 - Enable or disable the plugin easily from the settings page.
 - Moderate comments before they are saved in the database.
-- Show an error message to users when their comment contains content that violates the allowed classifications.
+- Show an error message to users when their comment contains content that violates the disallowed classifications.
 
 ## Installation
 
@@ -24,7 +32,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 1. Obtain an OpenAI API key by signing up at https://beta.openai.com/signup/ and going to this page https://platform.openai.com/account/api-keys.
 2. Go to the 'Settings' > 'OpenAI Moderation' screen in your WordPress admin area.
 3. Enter your OpenAI API key in the 'OpenAI API Key' field.
-4. Select the content categories you want to allow in the 'Allowed Classifications' field.
+4. Select the content categories you want to block in the 'Disallowed Classifications' field.
 5. Check the 'Enable OpenAI Moderation' checkbox to enable the plugin.
 6. Click 'Save Changes' to save your settings.
 
