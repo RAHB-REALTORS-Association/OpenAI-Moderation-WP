@@ -20,6 +20,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 3. Navigate to the 'Settings' > 'OpenAI Moderation' screen to configure the plugin.
 
 ## Configuration
+![Admin Settings](screenshots/admin_settings.png)
 
 1. Obtain an OpenAI API key by signing up at https://beta.openai.com/signup/ and going to this page https://platform.openai.com/account/api-keys.
 2. Go to the 'Settings' > 'OpenAI Moderation' screen in your WordPress admin area.
