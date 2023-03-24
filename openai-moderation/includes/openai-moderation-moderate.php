@@ -50,12 +50,12 @@ class OpenAIModeration_Moderate
             return $comment_data;
         }
 
-        $allowed_classifications = get_option('openai_classifications');
-        $allowed_classifications = array_map('trim', $allowed_classifications);
+        $disallowed_classifications = get_option('openai_classifications');
+        $disallowed_classifications = array_map('trim', $disallowed_classifications);
 
         $violates_policies = false;
         foreach ($moderation_result['categories'] as $category => $flagged) {
-            if ($flagged && in_array($category, $allowed_classifications)) {
+            if ($flagged && in_array($category, $disallowed_classifications)) {
                 $violates_policies = true;
                 break;
             }

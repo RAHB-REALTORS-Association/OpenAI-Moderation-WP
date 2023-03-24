@@ -31,7 +31,7 @@ class OpenAIModeration_Settings
 
     public function settings_page()
     {
-        $allowed_classifications_options = array(
+        $disallowed_classifications_options = array(
             'hate' => __('Hate', 'openai-moderation'),
             'hate/threatening' => __('Hate/Threatening', 'openai-moderation'),
             'self-harm' => __('Self-Harm', 'openai-moderation'),
@@ -50,12 +50,12 @@ class OpenAIModeration_Settings
             return array();
         }
 
-        $allowed_classifications = array(
+        $disallowed_classifications = array(
             'hate', 'hate/threatening', 'self-harm','sexual/minors', 'violence', 'violence/graphic'
         );
 
-        return array_values(array_filter($classifications, function ($classification) use ($allowed_classifications) {
-            return in_array($classification, $allowed_classifications, true);
+        return array_values(array_filter($classifications, function ($classification) use ($disallowed_classifications) {
+            return in_array($classification, $disallowed_classifications, true);
         }));
     }
 }

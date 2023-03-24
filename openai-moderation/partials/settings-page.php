@@ -18,7 +18,7 @@
             <tr>
                 <th scope="row"><?php _e('Disallowed Classifications', 'openai-moderation'); ?></th>
                 <td>
-                    <?php foreach ($allowed_classifications_options as $classification_key => $classification_label): ?>
+                    <?php foreach ($disallowed_classifications_options as $classification_key => $classification_label): ?>
                         <input type="checkbox" name="openai_classifications[]" id="openai_classifications_<?php echo $classification_key; ?>" value="<?php echo 
 esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $stored_classifications), true); ?> />
                         <label for="openai_classifications_<?php echo $classification_key; ?>"><?php echo esc_html($classification_label); ?></label><br />
