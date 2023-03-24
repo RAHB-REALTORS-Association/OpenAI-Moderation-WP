@@ -11,7 +11,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 - Configure the OpenAI API key and allowed classifications.
 - Enable or disable the plugin easily from the settings page.
 - Moderate comments before they are saved in the database.
-- Show an error message to users when their comment contains content that violates the disallowed classifications.
+- Redirect users to a selected page when their comment contains content that violates the disallowed classifications.
 
 ## Installation
 
@@ -26,12 +26,13 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 3. Enter your OpenAI API key in the 'OpenAI API Key' field.
 4. Select the content categories you want to block in the 'Disallowed Classifications' field.
 5. Check the 'Enable OpenAI Moderation' checkbox to enable the plugin.
-6. Click 'Save Changes' to save your settings.
+6. Select the page to redirect to in the 'Error Page' dropdown.
+7. Click 'Save Changes' to save your settings.
 
 ## Usage
 
 Once the plugin is enabled and configured, it will automatically moderate comments on your website. If a user tries to post a comment that contains content that violates the allowed 
-classifications, they will see an error message and the comment will not be posted.
+classifications, they will be redirected to a page and the comment will not be posted.
 
 You can extend the plugin to moderate other types of content, such as user-submitted posts, by using the appropriate hooks and filters in WordPress.
 

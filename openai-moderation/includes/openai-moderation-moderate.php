@@ -62,7 +62,14 @@ class OpenAIModeration_Moderate
         }
         
         if ($violates_policies) {
-            wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
+            $error_page_id = get_option('openai_error_page');
+            if ($error_page_id) {
+                $error_page_url = get_permalink($error_page_id);
+                if ($error_page_url) {
+                    wp_safe_redirect($error_page_url);
+                    exit;
+                }
+            }
         }        
 
         return $comment_data;
