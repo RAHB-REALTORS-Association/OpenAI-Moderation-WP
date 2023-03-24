@@ -49,7 +49,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
                         'option_none_value' => ''
                     ));
                     ?>
-                    <p><?php _e('Select a page to redirect users when their comment violates the policies.', 'openai-moderation'); ?></p>
+                    <p><?php _e('Select a page to redirect users to when their comment violates the policies.', 'openai-moderation'); ?></p>
                 </td>
             </tr>
         </table>
