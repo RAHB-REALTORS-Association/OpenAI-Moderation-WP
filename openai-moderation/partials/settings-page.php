@@ -36,7 +36,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="openai_error_page"><?php _e('Error Page', 'openai-moderation'); ?></label>
+                    <label for="openai_error_page"><?php _e('Redirect Page', 'openai-moderation'); ?></label>
                 </th>
                 <td>
                     <?php
@@ -49,7 +49,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
                         'option_none_value' => ''
                     ));
                     ?>
-                    <p><?php _e('Select a page to redirect users to when their comment violates the policies.', 'openai-moderation'); ?></p>
+                    <p><?php _e('Select a Page to redirect users to when their comment violates the policies.<br />A default WordPress error page will be displayed if no Page is selected.', 'openai-moderation'); ?></p>
                 </td>
             </tr>
         </table>

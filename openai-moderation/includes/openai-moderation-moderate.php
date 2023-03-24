@@ -45,14 +45,14 @@ class OpenAIModeration_Moderate
     {
         $content = $comment_data['comment_content'];
         $moderation_result = $this->moderate_content($content);
-
+    
         if (!$moderation_result || !$moderation_result['flagged']) {
             return $comment_data;
         }
-
+    
         $disallowed_classifications = get_option('openai_classifications');
         $disallowed_classifications = array_map('trim', $disallowed_classifications);
-
+    
         $violates_policies = false;
         foreach ($moderation_result['categories'] as $category => $flagged) {
             if ($flagged && in_array($category, $disallowed_classifications)) {
@@ -60,7 +60,7 @@ class OpenAIModeration_Moderate
                 break;
             }
         }
-        
+    
         if ($violates_policies) {
             $error_page_id = get_option('openai_error_page');
             if ($error_page_id) {
@@ -69,9 +69,12 @@ class OpenAIModeration_Moderate
                     wp_safe_redirect($error_page_url);
                     exit;
                 }
+            } else {
+                // If no error page is configured, use the wp_die() fallback
+                wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
             }
-        }        
-
+        }
+    
         return $comment_data;
     }
 }
