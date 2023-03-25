@@ -16,6 +16,7 @@ defined('ABSPATH') || exit;
 // Define the plugin path.
 define('OPENAI_MODERATION_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('OPENAI_MODERATION_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('OPENAI_MODERATION_PLUGIN_FILE', __FILE__);
 
 // Include the plugin's files.
 require_once OPENAI_MODERATION_PLUGIN_DIR . 'includes/openai-moderation-settings.php';
