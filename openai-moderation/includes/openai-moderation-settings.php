@@ -6,8 +6,6 @@ class OpenAIModeration_Settings
         // Register the settings submenu and settings.
         add_action('admin_menu', [$this, 'register_settings_submenu']);
         add_action('admin_init', [$this, 'register_settings']);
-        // Add settings link to the plugin page.
-        add_filter('plugin_action_links_' . plugin_basename(OPENAI_MODERATION_PLUGIN_FILE), [$this, 'add_settings_link']);
     }
 
     // Register the settings submenu under the "Settings" menu in the admin area.
@@ -20,14 +18,6 @@ class OpenAIModeration_Settings
             'openai-moderation',
             [$this, 'settings_page']
         );
-    }
-    
-    // Add settings link to the plugin page.
-    public function add_settings_link($links)
-    {
-        $settings_link = '<a href="options-general.php?page=openai-moderation">' . __('Settings', 'openai-moderation') . '</a>';
-        array_unshift($links, $settings_link);
-        return $links;
     }
 
     // Register the plugin's settings.
