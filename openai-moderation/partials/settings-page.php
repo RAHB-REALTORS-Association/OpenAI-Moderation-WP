@@ -31,7 +31,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
                 </th>
                 <td>
                     <input type="checkbox" name="openai_plugin_enabled" id="openai_plugin_enabled" value="1" <?php checked(1, get_option('openai_plugin_enabled'), true); ?> />
-                    <label for="openai_plugin_enabled"><?php _e('Enable Moderation', 'openai-moderation'); ?></label>
+                    <label for="openai_plugin_enabled"><?php _e('Comment Moderation', 'openai-moderation'); ?></label>
                 </td>
             </tr>
             <tr>
@@ -49,7 +49,7 @@ esc_attr($classification_key); ?>" <?php checked(in_array($classification_key, $
                         'option_none_value' => ''
                     ));
                     ?>
-                    <p><?php _e('Select a Page to redirect users to when their comment violates the policies.<br />A default WordPress error page will be displayed if no Page is selected.', 'openai-moderation'); ?></p>
+                    <p><?php _e('Select a Page to redirect users to when their comment violates the policies.<br /><br />A generic WordPress error page will be displayed if no Page is selected.', 'openai-moderation'); ?></p>
                 </td>
             </tr>
         </table>
