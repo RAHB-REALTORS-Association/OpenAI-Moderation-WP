@@ -40,6 +40,32 @@ classifications, they will be redirected to a page and the comment will not be p
 
 You can extend the plugin to moderate other types of content, such as user-submitted posts, by using the appropriate hooks and filters in WordPress.
 
+## FAQ
+
+1. **Is there any cost associated with using the OpenAI Moderation API?**
+
+   The OpenAI Moderation API is a separate service provided by [OpenAI](https://openai.com), and it may have its own pricing structure. You can check the [OpenAI website](https://platform.openai.com/docs/guides/moderation/overview) for the current pricing details. The OpenAI Moderation WordPress Plugin itself is free and does not have a paid version.
+
+2. **What data is sent to the OpenAI API?**
+
+   Only the content of the comment is sent to the OpenAI API for moderation. No personally identifiable information (PII) or other sensitive data is sent. Please see the [OpenAI privacy policy](https://openai.com/policies/privacy-policy) for more details.
+
+3. **What happens if the OpenAI API is unreachable or there's an error in the response?**
+
+   If the OpenAI API is unreachable or there's an error in the response, the comment moderation process will fail, and the comment will be allowed to be posted as-is. This ensures that users can still interact with your website even in case of temporary API issues.
+
+4. **Can I customize the error message shown to users when their comment is rejected?**
+
+   Yes, you can customize the error message by creating a dedicated error page in your WordPress admin area and selecting it in the plugin settings. If no error page is configured, a generic WordPress error message will be shown instead.
+
+5. **Is the OpenAI Moderation WordPress Plugin compatible with other WordPress plugins?**
+
+   The plugin should work well with most WordPress plugins. However, compatibility issues may arise with other plugins that modify the comment submission process or interact with the OpenAI API. If you encounter any compatibility issues, please open a [bug report issue](https://github.com/RAHB-REALTORS-Association/OpenAI-Moderation-WP/issues).
+
+6. **Can I use the OpenAI Moderation WordPress Plugin to moderate other types of user-submitted content?**
+
+   While the plugin is designed to moderate comments by default, you can extend its functionality to moderate other types of content, such as user-submitted posts, by using the appropriate hooks and filters in WordPress.
+
 ## Troubleshooting
 
 If the plugin is not working as expected, make sure that your OpenAI API key is valid and that the **Enable OpenAI Moderation** checkbox is checked in the plugin settings.
