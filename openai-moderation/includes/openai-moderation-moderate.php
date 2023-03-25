@@ -3,9 +3,11 @@ class OpenAIModeration_Moderate
 {
     public function __construct()
     {
+        // Add the moderation filter to the comment form.
         add_filter('preprocess_comment', [$this, 'moderate_comment']);
     }
 
+    // Moderate the content using the OpenAI Moderation API.
     public function moderate_content($content)
     {
         $api_key = get_option('openai_api_key');
@@ -13,6 +15,7 @@ class OpenAIModeration_Moderate
             return false;
         }
 
+        // Make the request to the OpenAI Moderation API.
         $url = 'https://api.openai.com/v1/moderations';
         $headers = array(
             'Content-Type' => 'application/json',
@@ -28,10 +31,12 @@ class OpenAIModeration_Moderate
             'timeout' => 30
         ));
 
+        // If the request fails, return false.
         if (is_wp_error($response)) {
             return false;
         }
 
+        // If the request succeeds, return the moderation result.
         $response_body = json_decode(wp_remote_retrieve_body($response), true);
         if (!$response_body || !isset($response_body['results']) || !isset($response_body['results'][0])) {
             return false;
@@ -41,18 +46,21 @@ class OpenAIModeration_Moderate
         return $moderation_result;
     }
 
+    // Moderate the comment and redirect to the error page if it violates the configured policies.
     public function moderate_comment($comment_data)
     {
         $content = $comment_data['comment_content'];
         $moderation_result = $this->moderate_content($content);
-    
+
+        // If the comment does not violate the configured policies, return the comment data.
         if (!$moderation_result || !$moderation_result['flagged']) {
             return $comment_data;
         }
-    
+
         $disallowed_classifications = get_option('openai_classifications');
         $disallowed_classifications = array_map('trim', $disallowed_classifications);
-    
+
+        // Check if the comment violates the configured policies.
         $violates_policies = false;
         foreach ($moderation_result['categories'] as $category => $flagged) {
             if ($flagged && in_array($category, $disallowed_classifications)) {
@@ -60,7 +68,8 @@ class OpenAIModeration_Moderate
                 break;
             }
         }
-    
+
+        // If the comment violates the configured policies, redirect to the error page.
         if ($violates_policies) {
             $error_page_id = get_option('openai_error_page');
             if ($error_page_id) {
@@ -74,7 +83,7 @@ class OpenAIModeration_Moderate
                 wp_die(__('Your comment could not be posted as it contains content that violates our policies.', 'openai-moderation'));
             }
         }
-    
+
         return $comment_data;
     }
 }
