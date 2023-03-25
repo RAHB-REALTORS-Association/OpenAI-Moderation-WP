@@ -11,7 +11,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 
 ## Features
 
-- Configure the OpenAI API key and allowed classifications.
+- Configure the OpenAI API key and disallowed classifications.
 - Enable or disable the plugin easily from the settings page.
 - Moderate comments before they are saved in the database.
 - Redirect users to a selected page when their comment contains content that violates the disallowed classifications.
