@@ -8,7 +8,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 
 ### Get It From WordPress.org:
 ### [wordpress.org/plugins/openai-moderation](https://wordpress.org/plugins/openai-moderation/)
-#
+
 ## Features
 
 - Configure the OpenAI API key and allowed classifications.
@@ -18,7 +18,7 @@ We’re proud to announce that this plugin will always be 100% free, with no pla
 
 ## Installation
 
-1. Download the plugin's ZIP file and extract it to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
+1. Download the latest ZIP file from the [releases page](https://github.com/RAHB-REALTORS-Association/OpenAI-Moderation-WP/releases/) and extract it to the `/wp-content/plugins/` directory, or install the plugin through the WordPress.org plugins directory.
 2. Activate the plugin through the **Plugins** screen in WordPress.
 3. Navigate to the **Settings > OpenAI Moderation** screen to configure the plugin.
 
@@ -42,7 +42,7 @@ You can extend the plugin to moderate other types of content, such as user-submi
 
 ## Troubleshooting
 
-If the plugin is not working as expected, make sure that your OpenAI API key is valid and that the 'Enable OpenAI Moderation' checkbox is checked in the plugin settings.
+If the plugin is not working as expected, make sure that your OpenAI API key is valid and that the **Enable OpenAI Moderation** checkbox is checked in the plugin settings.
 
 ## Support and Contributions
 
