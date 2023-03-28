@@ -68,7 +68,7 @@ You can extend the plugin to moderate other types of content, such as user-submi
 
 ## Troubleshooting
 
-If the plugin is not working as expected, make sure that your OpenAI API key is valid and that the **Enable OpenAI Moderation** checkbox is checked in the plugin settings.
+If the plugin is not working as expected, make sure that your **OpenAI API Key** is valid and that the **Enable Plugin** checkbox is checked in the plugin settings.
 
 ## Support and Contributions
 
